@@ -18,7 +18,6 @@
 ---
 
 ## TODO
-- Create Jellyfin VM
 - Decide backup tooling (rsync / borg / PBS)
 - Add Prometheus host labels
 
@@ -31,3 +30,4 @@
 
 ## DONE
 - kanban.md created
+- Created github structure for documentation
