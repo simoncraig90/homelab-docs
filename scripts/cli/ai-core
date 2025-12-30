@@ -1,0 +1,17 @@
+#!/bin/bash
+# ai-core CLI - send text to the AI-Core VM and print the response
+
+AI_CORE_URL="http://192.168.0.147:11434/api/generate"
+MODEL="qwen2.5:14b-instruct"
+
+if [ $# -eq 0 ]; then
+  echo "Usage: ai-core \"your prompt here\""
+  exit 1
+fi
+
+PROMPT="$*"
+
+curl -s "$AI_CORE_URL" \
+  -H "Content-Type: application/json" \
+  -d "{\"model\": \"$MODEL\", \"prompt\": \"$PROMPT\", \"stream\": false}" \
+  | jq -r '.response'
